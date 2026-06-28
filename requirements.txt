@@ -1,0 +1,78 @@
+# Step 0: Project structure skeleton
+# We will build this step by step
+
+project/
+├── data/
+│   ├── inputs/
+│   └── outputs/
+├── perception/
+│   └── yolo_detector.py
+├── conditioning/
+│   └── condition_encoder.py
+├── diffusion/
+│   ├── model.py
+│   └── sampler.py
+├── utils/
+│   └── visualization.py
+├── main.py
+└── requirements.txt
+
+
+
+
+project/
+├── data/
+│   ├── inputs/
+│   │   └── image_001.jpg
+│   └── outputs/
+│       ├── detections/
+│       └── generations/
+│
+├── perception/
+│   ├── __init__.py
+│   └── yolo_detector.py
+│
+├── conditioning/
+│   ├── __init__.py
+│   ├── condition_encoder.py
+│   └── layout_utils.py      ← scale bbox / heatmap
+│
+├── diffusion/
+│   ├── __init__.py
+│   ├── base_model.py        ← Stable Diffusion
+│   ├── controlnet_model.py  ← ControlNet pipeline
+│   └── sampler.py
+│
+├── utils/
+│   ├── __init__.py
+│   ├── visualization.py
+│   └── io.py                ← load/save helpers
+│
+├── configs/
+│   └── default.yaml         ← prompt, steps, size
+│
+├── main.py
+└── requirements.txt
+
+# Step 1: Environment & Dependencies
+# Target: MacBook (MPS) for development, Colab (CUDA) for training
+
+# requirements.txt content:
+# ------------------------
+# torch>=2.1.0
+# torchvision>=0.16.0
+# torchaudio>=2.1.0
+# ultralytics>=8.1.0
+# diffusers>=0.25.0
+# transformers>=4.36.0
+# accelerate>=0.25.0
+# opencv-python>=4.8.0
+# pillow>=10.0.0
+# numpy>=1.24.0
+# einops>=0.7.0
+# tqdm>=4.66.0
+# safetensors>=0.4.0
+
+# After installing dependencies, verify device availability using utils/device_check.py
+
+print("Step 1 completed: environment defined")
